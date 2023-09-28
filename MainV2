@@ -1,29 +1,21 @@
 def reajuste(salario):
     if salario <= 280:
         percentual = 0.20
-        novo_salario = salario + percentual
-        mudanca = novo_salario - salario
-        lista = []
-        return lista[percentual,novo_salario,mudanca]
-
-    elif 700 < salario > 280:
+    elif salario <= 700:
         percentual = 0.15
-        novo_salario = salario + percentual
-        mudanca = novo_salario - salario
-        lista = []
-        return lista[percentual,novo_salario,mudanca]
-
-    elif salario > 1500:
+    else:
         percentual = 0.10
-        novo_salario = salario + percentual
-        mudanca = novo_salario - salario
-        lista = []
-        return lista[percentual,novo_salario,mudanca]
-
-
+    
+    novo_salario = salario + (salario * percentual)
+    mudanca = novo_salario - salario
+    
+    return (percentual, novo_salario, mudanca)
 
 print("Insira o salário do funcionário")
 salario = float(input("Salário: "))
-lista = [reajuste(salario)]
+resultado = reajuste(salario)
 print("\n")
-print(f"Salário antes do reajuste: {salario} \n O perncentual de aumento será {lista[0]:.2f}")
+print(f"Salário antes do reajuste: {salario:.2f}")
+print(f"Percentual de aumento: {resultado[0] * 100:.2f}%")
+print(f"Novo salário: {resultado[1]:.2f}")
+print(f"Aumento: {resultado[2]:.2f}")
